@@ -1,4 +1,110 @@
-/* Table styling */
+/* GENERAL */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* LOGIN PAGE */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background-color: #52c41a;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-card .error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* APP LAYOUT */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background-color: #001529;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.sidebar nav a.active, .sidebar nav a:hover {
+  background-color: #1890ff;
+}
+
+.btn-logout {
+  margin-top: auto;
+  padding: 10px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+/* TABLE */
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -12,54 +118,19 @@
 }
 
 .data-table th {
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
 }
 
-/* Stock colors */
-.stock-zero {
-  color: white;
-  background-color: #ff4d4f; /* red */
-  font-weight: bold;
-}
+/* STOCK COLORS */
+.stock-zero { background-color: #ff4d4f; color: white; font-weight: bold; }
+.stock-low { background-color: #faad14; color: black; font-weight: bold; }
+.stock-ok { background-color: #52c41a; color: white; font-weight: bold; }
 
-.stock-low {
-  color: black;
-  background-color: #faad14; /* yellow */
-  font-weight: bold;
-}
+/* BUTTONS */
+.btn { margin: 2px; padding: 5px 10px; font-weight: bold; border: none; cursor: pointer; border-radius: 5px; }
+.btn-order { background-color: #52c41a; color: white; }
+.btn-edit { background-color: #faad14; color: black; }
+.btn-delete { background-color: #ff4d4f; color: white; }
 
-.stock-ok {
-  color: white;
-  background-color: #52c41a; /* green */
-  font-weight: bold;
-}
-
-/* Buttons */
-.btn {
-  margin: 2px;
-  padding: 5px 10px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn-order {
-  background-color: #52c41a; /* green */
-  color: white;
-}
-
-.btn-edit {
-  background-color: #faad14; /* yellow */
-  color: black;
-}
-
-.btn-delete {
-  background-color: #ff4d4f; /* red */
-  color: white;
-}
-
-/* Center headings */
-h2 {
-  text-align: center;
-  margin-top: 20px;
-}
+/* HEADINGS */
+h2 { text-align: center; margin-top: 20px; }

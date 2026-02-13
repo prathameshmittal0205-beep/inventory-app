@@ -4,21 +4,18 @@ import "./App.css";
 
 function Sidebar({ user, setUser }) {
   const location = useLocation();
-  const activeClass = (path) =>
-    location.pathname === path ? "sidebar-item active" : "sidebar-item";
-
-  const handleLogout = () => setUser(null);
 
   return (
     <div className="sidebar">
-      <h2 className="sidebar-title">Inventory App</h2>
-      <p className="sidebar-user">Hello, {user.name}</p>
-      <Link className={activeClass("/")} to="/">Dashboard</Link>
-      <Link className={activeClass("/suppliers")} to="/suppliers">Suppliers</Link>
-      <Link className={activeClass("/users")} to="/users">Users</Link>
-      <Link className={activeClass("/stock-alerts")} to="/stock-alerts">Stock Alerts</Link>
-      <Link className={activeClass("/reports")} to="/reports">Reports</Link>
-      <button className="btn logout-btn" onClick={handleLogout}>Logout</button>
+      <h3>Welcome, {user.name}</h3>
+      <nav>
+        <Link className={location.pathname === "/" ? "active" : ""} to="/">Dashboard</Link>
+        <Link className={location.pathname === "/suppliers" ? "active" : ""} to="/suppliers">Suppliers</Link>
+        <Link className={location.pathname === "/users" ? "active" : ""} to="/users">Users</Link>
+        <Link className={location.pathname === "/stock-alerts" ? "active" : ""} to="/stock-alerts">Stock Alerts</Link>
+        <Link className={location.pathname === "/reports" ? "active" : ""} to="/reports">Reports</Link>
+      </nav>
+      <button className="btn btn-logout" onClick={setUser}>Logout</button>
     </div>
   );
 }

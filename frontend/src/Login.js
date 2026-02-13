@@ -9,32 +9,31 @@ function Login({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!onLogin(username, password)) {
-      setError("Invalid username or password!");
+      setError("Invalid credentials!");
     }
   };
 
   return (
     <div className="login-page">
-      <h1>Inventory App Login</h1>
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        {error && <p className="error">{error}</p>}
-        <button type="submit" className="btn login-btn">Login</button>
-      </form>
-      <p>Use <strong>admin/password</strong> to login</p>
+      <div className="login-card">
+        <h2>Inventory Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Login</button>
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 }
