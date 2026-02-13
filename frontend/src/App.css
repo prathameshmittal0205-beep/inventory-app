@@ -1,135 +1,65 @@
-/* General Layout */
-.app {
-  display: flex;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-.sidebar {
-  width: 220px;
-  background-color: #1f2937;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.sidebar-title {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin: 15px 0;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.sidebar ul li.active a,
-.sidebar ul li a:hover {
-  color: #facc15;
-}
-
-.content {
-  flex: 1;
-  padding: 30px;
-  background-color: #f3f4f6;
-  overflow-y: auto;
-}
-
-/* Cards for Dashboard */
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.card {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 200px;
-  text-align: center;
-}
-
-/* Buttons */
-.btn-red {
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.btn-yellow {
-  background-color: #fbbf24;
-  color: black;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.btn-green {
-  background-color: #22c55e;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-/* Tables */
-.table {
+/* Table styling */
+.data-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.table th, .table td {
-  padding: 12px 15px;
+.data-table th, .data-table td {
   border: 1px solid #ddd;
-  text-align: left;
+  padding: 10px;
+  text-align: center;
 }
 
-.table th {
-  background-color: #fbbf24;
+.data-table th {
+  background-color: #f0f0f0;
 }
 
-/* Stock Alerts */
-.alerts {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-.alert-red {
+/* Stock colors */
+.stock-zero {
   color: white;
-  background-color: #ef4444;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #ff4d4f; /* red */
+  font-weight: bold;
 }
 
-.alert-yellow {
+.stock-low {
   color: black;
-  background-color: #fbbf24;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #faad14; /* yellow */
+  font-weight: bold;
+}
+
+.stock-ok {
+  color: white;
+  background-color: #52c41a; /* green */
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-order {
+  background-color: #52c41a; /* green */
+  color: white;
+}
+
+.btn-edit {
+  background-color: #faad14; /* yellow */
+  color: black;
+}
+
+.btn-delete {
+  background-color: #ff4d4f; /* red */
+  color: white;
+}
+
+/* Center headings */
+h2 {
+  text-align: center;
+  margin-top: 20px;
 }

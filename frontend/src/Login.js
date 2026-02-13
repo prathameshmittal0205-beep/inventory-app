@@ -1,42 +1,40 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "./App.css";
 
-function Login() {
+function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (username && password) {
-      navigate("/dashboard"); // Redirect to Dashboard after login
-    } else {
-      alert("Enter username and password");
+    if (!onLogin(username, password)) {
+      setError("Invalid username or password!");
     }
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "100px" }}>
-      <form onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <div>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
+    <div className="login-page">
+      <h1>Inventory App Login</h1>
+      <form onSubmit={handleSubmit} className="login-form">
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        {error && <p className="error">{error}</p>}
+        <button type="submit" className="btn login-btn">Login</button>
       </form>
+      <p>Use <strong>admin/password</strong> to login</p>
     </div>
   );
 }

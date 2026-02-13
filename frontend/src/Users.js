@@ -1,38 +1,33 @@
 import React from "react";
-import "./App.css";
 
-const Users = () => {
-  const users = [
-    { name: "Alice", role: "Admin" },
-    { name: "Bob", role: "Staff" },
-  ];
+const mockUsers = [
+  { id: 1, name: "Alice", role: "Admin" },
+  { id: 2, name: "Bob", role: "Manager" },
+  { id: 3, name: "Charlie", role: "Staff" },
+];
 
+function Users() {
   return (
-    <div>
+    <div className="page">
       <h1>Users</h1>
-      <table className="table">
+      <table className="inventory-table">
         <thead>
           <tr>
             <th>Name</th>
             <th>Role</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
-            <tr key={index}>
-              <td>{user.name}</td>
-              <td>{user.role}</td>
-              <td>
-                <button className="btn-yellow">Edit</button>
-                <button className="btn-red">Delete</button>
-              </td>
+          {mockUsers.map((u) => (
+            <tr key={u.id}>
+              <td>{u.name}</td>
+              <td>{u.role}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default Users;

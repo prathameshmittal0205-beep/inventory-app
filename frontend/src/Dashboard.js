@@ -1,41 +1,18 @@
 import React from "react";
-import "./App.css";
 
-const Dashboard = () => {
-  const stockData = [
-    { item: "Laptop", quantity: 20 },
-    { item: "Mouse", quantity: 5 },
-    { item: "Keyboard", quantity: 0 },
-  ];
-
+function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div className="cards">
-        {stockData.map((stock, index) => (
-          <div className="card" key={index}>
-            <h3>{stock.item}</h3>
-            <p>Quantity: {stock.quantity}</p>
-            <button
-              className={
-                stock.quantity === 0
-                  ? "btn-red"
-                  : stock.quantity < 10
-                  ? "btn-yellow"
-                  : "btn-green"
-              }
-            >
-              {stock.quantity === 0
-                ? "Out of Stock"
-                : stock.quantity < 10
-                ? "Low Stock"
-                : "In Stock"}
-            </button>
-          </div>
-        ))}
+    <div className="page">
+      <h1>Welcome to Inventory Dashboard</h1>
+      <p>Quick summary of stock, suppliers, and users.</p>
+      <div className="summary-cards">
+        <div className="card">Total Suppliers: 10</div>
+        <div className="card">Total Users: 5</div>
+        <div className="card">Items in Stock: 150</div>
+        <div className="card">Low Stock Items: 8</div>
       </div>
     </div>
   );
-};
+}
 
 export default Dashboard;
