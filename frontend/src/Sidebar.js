@@ -1,23 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import "./App.css";
 
-function Sidebar() {
+const Sidebar = () => {
+  const location = useLocation();
+
+  const menuItems = [
+    { name: "Dashboard", path: "/" },
+    { name: "Suppliers", path: "/suppliers" },
+    { name: "Users", path: "/users" },
+    { name: "Stock Alerts", path: "/stock-alerts" },
+    { name: "Reports", path: "/reports" },
+  ];
+
   return (
-    <div style={{ width: "200px", background: "#222", color: "#fff", minHeight: "100vh" }}>
-      <h2 style={{ textAlign: "center", padding: "20px 0" }}>Inventory</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        <li style={{ padding: "10px" }}>
-          <Link to="/dashboard" style={{ color: "#fff", textDecoration: "none" }}>Dashboard</Link>
-        </li>
-        <li style={{ padding: "10px" }}>
-          <Link to="/suppliers" style={{ color: "#fff", textDecoration: "none" }}>Suppliers</Link>
-        </li>
-        <li style={{ padding: "10px" }}>
-          <Link to="/users" style={{ color: "#fff", textDecoration: "none" }}>Users</Link>
-        </li>
+    <div className="sidebar">
+      <h2 className="sidebar-title">Inventory App</h2>
+      <ul>
+        {menuItems.map((item) => (
+          <li
+            key={item.name}
+            className={location.pathname === item.path ? "active" : ""}
+          >
+            <Link to={item.path}>{item.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
 export default Sidebar;

@@ -1,22 +1,38 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import "./App.css";
 
-function Users() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/users")
-      .then(res => setUsers(res.data))
-      .catch(err => console.error(err));
-  }, []);
+const Users = () => {
+  const users = [
+    { name: "Alice", role: "Admin" },
+    { name: "Bob", role: "Staff" },
+  ];
 
   return (
     <div>
-      <h2>Users</h2>
-      {users.length === 0 ? <p>No users found.</p> :
-        <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>}
+      <h1>Users</h1>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user, index) => (
+            <tr key={index}>
+              <td>{user.name}</td>
+              <td>{user.role}</td>
+              <td>
+                <button className="btn-yellow">Edit</button>
+                <button className="btn-red">Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-}
+};
 
 export default Users;
